@@ -1,18 +1,23 @@
 import random
-namen = ["iris", "katie", "frank", "wouter", "jelmer", "frans", "robin", "bobbie", "nicole", "jos", "frenk", "loel", "martijn", "roos"]
+def picker(range):
+    pick = random.randint(0, len(range)-1)
+    return pick
+
+persoon = ["iris", "katie", "frank", "wouter", "jelmer", "frans", "robin", "bobbie", "nicole", "jos", "frenk", "loel", "martijn", "roos"]
+kiest = ["iris", "katie", "frank", "wouter", "jelmer", "frans", "robin", "bobbie", "nicole", "jos", "frenk", "loel", "martijn", "roos"]
+
 koppelingen = []
 algestoken = []
-for i in namen:
-    olifant = True
-    while olifant:
-        koppel = namen[random.randint(0, len(namen)-1)]
-        if koppel != i:
-            if koppel not in algestoken:
-                #koppelkoppel = i + " trok " + koppel
-                #koppelingen.append(koppelkoppel)
-                algestoken.append(koppel)
-                olifant = False
-
-
-print(koppelingen)
-print("Katie trok bobbie", count, " keer.")
+while persoon != []:
+    persoon1 = persoon[0]
+    file = persoon1 + ".txt"
+    koppel = kiest[picker(kiest)]
+    persoon.remove(persoon1)
+    kiest.remove(koppel)
+    with open(file, 'w') as filetowrite:
+        koppelkoppel = persoon1 + " trok " + koppel
+        koppelingen.append(koppelkoppel)
+        algestoken.append(koppel)
+        filetowrite.write(koppelkoppel)
+    
+#print(koppelingen)
